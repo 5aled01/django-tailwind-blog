@@ -91,21 +91,15 @@ WSGI_APPLICATION = 'blogApp.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'IgmcOM4KBX51cxxkDIEF',
+        'HOST': 'containers-us-west-96.railway.app',
+        'PORT': '5624',
     }
 }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'railway',                      
-#         'USER': 'postgres',
-#         'PASSWORD': 'cqGiSNnstwaz2lyPFb4N',
-#         'HOST': 'containers-us-west-69.railway.app',
-#         'PORT': '6440',
-#     }
-# }
 
 
 # Password validation
@@ -161,7 +155,7 @@ else:
 # EMAIL CONFIGURATION (for contact form)
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'youremail@gmail.com'
+EMAIL_HOST_USER = '5aledihitt@gmail.com'
 EMAIL_HOST_PASSWORD = 'yourpassword'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
@@ -171,3 +165,8 @@ EMAIL_HOST_PASSWORD = 'hfqjknkonjknovjknkjljglydkbkjjej'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# python -m venv env
+# source env/bin/activate
+# python manage.py runserver
