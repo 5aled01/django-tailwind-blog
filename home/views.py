@@ -1,5 +1,8 @@
+import os
+from django.templatetags.static import static
 from django.shortcuts import render, HttpResponse, HttpResponseRedirect, redirect, get_object_or_404
 from django.http import Http404
+from blogApp import settings
 from home.models import Blog
 from django.contrib import messages
 from django.core.paginator import Paginator
@@ -9,14 +12,27 @@ import random
 import re
 
 # Create your views here.
-def index (request):
+def index(request):
     blogs = Blog.objects.all()
     random_blogs = random.sample(list(blogs), 0)
     context = {'random_blogs': random_blogs}
     return render(request, 'index.html', context)
 
-def about (request):
+def about(request):
     return render(request, 'about.html')
+
+
+def resumer(request):
+    file_path = 'pdf/khaled-resumer.pdf'
+    
+    absolute_file_path = os.path.join(settings.BASE_DIR, 'static', file_path)
+
+    with open(absolute_file_path, 'rb') as pdf_file:
+        response = HttpResponse(pdf_file.read(), content_type='application/pdf')
+        response['Content-Disposition'] = f'inline; filename="{os.path.basename(absolute_file_path)}"'
+        return response
+
+
 
 def thanks(request):
     return render(request, 'thanks.html')
