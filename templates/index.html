@@ -36,7 +36,8 @@
                     <div class='bg-gradient-to-r from-cyan-300 to-blue-600 px-6 py-2 text-white rounded-md -inset-0.5 absolute blur-sm opacity-75 group-hover:-inset-1 transition group-hover:duration-400 group-hover:opacity-90 duration-1000'></div>
                     <button class='relative bg-gray-800 px-7 py-2 text-white rounded-md group-hover:text-gray-50 transition duration-200'><i class="bi bi-download font-extrabold"></i> Download CV</button>
                 </div></a>
-                <a href='/about'><div class='relative group'>
+                <a href="#about-me">
+                    <div class='relative group'>
                     <div class='bg-gradient-to-r from-cyan-300 to-blue-600 px-6 py-2 text-white rounded-md -inset-0.5 absolute blur-sm opacity-75 group-hover:-inset-1 transition group-hover:duration-400 group-hover:opacity-90 duration-1000'></div>
                     <button class='relative bg-gray-800 px-7 py-2 text-white rounded-md group-hover:text-gray-50 transition duration-200'><i class="bi bi-person"></i> About me</button>
                 </div></a>
@@ -51,6 +52,10 @@
                 <li><a href='/' class='hover:text-blue-100'><i class="bi bi-linkedin"></i></a></li>
             </ul>
         </div> {% endcomment %}
+
+
+        
+
     </div>
     {% comment %} <div class='bg-slate-800 text-white p-5'>
         <span style="font-family: Poppins-Bold" class='text-2xl font-extrabold'>Checkout my latest posts</span>
@@ -64,12 +69,14 @@
                     <a href='/blogpost/{{blog.slug}}'><img class='rounded-lg mb-4' src="{{blog.thumbnail_url}}"></a>
                     <a class='text-blue-100 hover:text-blue-300 transition duration-300' href='/blogpost/{{blog.slug}}'><span class='text-xl font-extrabold'>{{blog.title|slice:80}}</span></a><br>
                     <p class='my-3'>{{blog.meta|slice:180|safe}}</p>
-                    <p class='mt-2 mb-4 text-gray-400'>by  <i class="bi bi-person"></i>  <a href='/about' class='group transition-all duration-500 ease-out'><span class='bg-left-bottom bg-gradient-to-r from-cyan-300 to-blue-500 bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out group-hover:text-cyan-200'>Ashish</span></a> <i class="bi bi-dot"></i> <span><i class="bi bi-calendar4-event"></i> {{blog.time}}</span> <i class="bi bi-dot"></i><i class="bi bi-tag"></i> <a href='/category/{{blog.category}}' class='group transition-all duration-500 ease-out'><span class='bg-left-bottom bg-gradient-to-r from-cyan-300 to-blue-500 bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out group-hover:text-cyan-200'>{{blog.category}}</span></a></p>
+                    <p class='mt-2 mb-4 text-gray-400'>by  <i class="bi bi-person"></i>  <a href="#about-me" class='group transition-all duration-500 ease-out'><span class='bg-left-bottom bg-gradient-to-r from-cyan-300 to-blue-500 bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out group-hover:text-cyan-200'>Ashish</span></a> <i class="bi bi-dot"></i> <span><i class="bi bi-calendar4-event"></i> {{blog.time}}</span> <i class="bi bi-dot"></i><i class="bi bi-tag"></i> <a href='/category/{{blog.category}}' class='group transition-all duration-500 ease-out'><span class='bg-left-bottom bg-gradient-to-r from-cyan-300 to-blue-500 bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out group-hover:text-cyan-200'>{{blog.category}}</span></a></p>
                     {% comment %} <a class='text-sm bg-gray-700 py-1 px-3 rounded-full' href='/category/{{blog.category}}'><i class="bi bi-tag"></i> {{blog.category}}</a><br><br> {% endcomment %}
                     <a href='/blogpost/{{blog.slug}}'><button class='bg-blue-600 p-2 px-4 rounded-[6px] hover:bg-gray-800 hover:outline hover:outline-blue-600 transition delay-75 ease-in-out my-3'>Read more <i class="bi bi-arrow-right font-extrabold"></i></button></a>
                 </div>
                 <br>
             {% endfor %}
+
+            Making some changes right now.. update blog coming soon! u can see <span class='group text-cyan-200'><a href='/projects' class='bg-left-bottom bg-gradient-to-r from-cyan-300 to-blue-500 bg-[length:0%_2px] bg-no-repeat group-hover:bg-[length:100%_2px] transition-all duration-500 ease-out'>__ projects __</a></span> instead.
         </div>
         <div class='flex justify-center'>
             <a href='/blog' class=''><button class='bg-gray-800 p-2 px-4 rounded-[6px] hover:bg-blue-600 outline hover:outline-none outline-blue-600 transition delay-75 ease-in-out my-3'>Load more <i class="bi bi-arrow-clockwise font-extrabold"></i></button></a>
@@ -85,5 +92,23 @@
             </div>
         </div>           {% endcomment %}
     </div>
+
+
+    <section id="about-me">
+        <!-- Include the About Me page using the include tag -->
+        {% include 'about.html' %}
+    </section>
+
+    <script>
+        // Smooth scroll behavior when clicking on navigation links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 
 {% endblock %}

@@ -14,6 +14,7 @@ import re
 # Create your views here.
 def index(request):
     blogs = Blog.objects.all()
+    blogs = Blog.objects.all()
     random_blogs = random.sample(list(blogs), 0)
     context = {'random_blogs': random_blogs}
     return render(request, 'index.html', context)
